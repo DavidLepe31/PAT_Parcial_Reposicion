@@ -18,7 +18,7 @@ Node<int>* Ejercicio01::addTwoNumbers(Node<int>* l1, int sizeL1, Node<int>* l2, 
     }
     while (i > 0)
     {
-        if (tmp->value + tmp2->value)
+        if (tmp->value + tmp2->value>10)
         {
             carry = 1;
         }
