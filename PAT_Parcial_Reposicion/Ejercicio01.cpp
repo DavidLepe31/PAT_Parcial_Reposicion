@@ -3,7 +3,7 @@
 #include<string>
 Node<int>* Ejercicio01::addTwoNumbers(Node<int>* l1, int sizeL1, Node<int>* l2, int sizeL2)
 {
-    int i=0,carry=1;
+    int i=0,carry=1, n=0;
     bool banse = true;
     Node<int>* headf =nullptr;
     Node<int>* tmp =l1;
@@ -11,14 +11,14 @@ Node<int>* Ejercicio01::addTwoNumbers(Node<int>* l1, int sizeL1, Node<int>* l2, 
     Node<int>* tmp3 = headf;
     if (sizeL1 < sizeL2)
     {
-        i = sizeL1;
+        n = sizeL1;
    }
     else
     {
-        i = sizeL2;
+        n = sizeL2;
         banse = false;
     }
-    while (i > 0)
+    while (i < n)
     {
         if (tmp->value + tmp2->value>10)
         {
@@ -37,7 +37,7 @@ Node<int>* Ejercicio01::addTwoNumbers(Node<int>* l1, int sizeL1, Node<int>* l2, 
             tmp3 = headf;
             tmp = tmp->next;
             tmp2 = tmp2->next;
-            i--;
+            i++;
             continue;
         }
         if (carry==1)
@@ -57,7 +57,7 @@ Node<int>* Ejercicio01::addTwoNumbers(Node<int>* l1, int sizeL1, Node<int>* l2, 
         }
         tmp = tmp->next;
         tmp2 = tmp2->next;
-        i--;
+        i++;
     }
     if (banse)
     {
