@@ -38,6 +38,7 @@ Node<int>* Ejercicio01::addTwoNumbers(Node<int>* l1, int sizeL1, Node<int>* l2, 
         digit = suma[i];
         newNode->value = stoi(digit);
         headf->next = newNode;
+        i++;
     }
     return NewNode;
 }
