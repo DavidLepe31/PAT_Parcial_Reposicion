@@ -4,6 +4,7 @@
 Node<int>* Ejercicio01::addTwoNumbers(Node<int>* l1, int sizeL1, Node<int>* l2, int sizeL2)
 {
     int i=0,carry=1;
+    bool banse = true;
     Node<int>* headf =nullptr;
     Node<int>* tmp =l1;
     Node<int>* tmp2 = l2;
@@ -15,6 +16,7 @@ Node<int>* Ejercicio01::addTwoNumbers(Node<int>* l1, int sizeL1, Node<int>* l2, 
     else
     {
         i = sizeL2;
+        banse = false;
     }
     while (i > 0)
     {
@@ -56,6 +58,24 @@ Node<int>* Ejercicio01::addTwoNumbers(Node<int>* l1, int sizeL1, Node<int>* l2, 
         tmp = tmp->next;
         tmp2 = tmp2->next;
         i--;
+    }
+    if (banse)
+    {
+        while (i<sizeL2)
+        {
+            tmp3->next = tmp2;
+            tmp3 = tmp3->next;
+            i++;
+        }
+    }
+    else
+    {
+        while (i < sizeL1)
+        {
+            tmp3->next = tmp;
+            tmp3 = tmp3->next;
+            i++;
+        }
     }
     return headf;
 }
