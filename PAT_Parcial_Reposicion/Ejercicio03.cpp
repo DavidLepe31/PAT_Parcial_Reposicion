@@ -1,17 +1,24 @@
 #include "Ejercicio03.h"
+#include<vector>
 
 Node<int>* Ejercicio03::detectCycle(Node<int>* head)
 {
-	Node<int>* fast = head;
-	Node<int>* slow = head;
-
-	while (fast!=nullptr && fast->next!=nullptr)
+	Node<int>* tmp = new Node<int>();
+	
+	while (head!=nullptr)
 	{
-		slow = slow->next;
-		fast = fast->next->next;
-		if (fast == slow) {
-			return fast;
+		if (head->next == nullptr)
+		{
+			return nullptr;
 		}
+		if (head->next == tmp)
+		{
+			return tmp;
+		}
+
+		Node<int>* next = head->next;
+		head->next = tmp;
+		head = next;
 	}
 	return nullptr;
 }
