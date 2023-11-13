@@ -3,22 +3,28 @@
 
 Node<int>* Ejercicio03::detectCycle(Node<int>* head)
 {
-	Node<int>* tmp = new Node<int>();
-	
-	while (head!=nullptr)
-	{
-		if (head->next == nullptr)
-		{
-			return nullptr;
-		}
-		if (head->next == tmp)
-		{
-			return tmp;
-		}
+    Node<int>* slow = head;
+    Node<int>* fast = head;
 
-		Node<int>* next = head->next;
-		head->next = tmp;
-		head = next;
-	}
-	return nullptr;
+    while (slow != nullptr && fast != nullptr && fast->next != nullptr) {
+        slow = slow->next;
+        fast = fast->next->next;
+
+        if (slow == fast) {
+            break;
+        }
+    }
+
+    if (fast == nullptr || fast->next == nullptr) {
+        return nullptr;
+    }
+
+    slow = head;
+
+    while (slow != slow) {
+        slow = slow->next;
+       fast = fast->next;
+    }
+
+    return fast;
 }
