@@ -31,8 +31,7 @@ Node<int>* Ejercicio01::addTwoNumbers(Node<int>* l1, int sizeL1, Node<int>* l2, 
         sum = l1->value + l2->value + carry;
         if (sum >= 10) {
             newNode->value = (sum % 10);
-            newNode->next = nullptr;
-            headf->next = newNode;
+            newNode->next = headf;
             headf = newNode;
             l1 = l1->next;
             l2 = l2->next;
@@ -40,8 +39,7 @@ Node<int>* Ejercicio01::addTwoNumbers(Node<int>* l1, int sizeL1, Node<int>* l2, 
         }
         else {
             newNode->value = sum;
-            newNode->next = nullptr;
-            headf->next = newNode;
+            newNode->next = headf;
             headf = newNode;
             l1 = l1->next;
             l2 = l2->next;
