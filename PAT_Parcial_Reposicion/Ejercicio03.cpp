@@ -21,7 +21,7 @@ Node<int>* Ejercicio03::detectCycle(Node<int>* head)
 
     slow = head;
 
-    while (slow != slow) {
+    while (slow != fast) {
         slow = slow->next;
        fast = fast->next;
     }
