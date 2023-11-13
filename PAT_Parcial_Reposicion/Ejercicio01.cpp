@@ -3,7 +3,7 @@
 #include<string>
 Node<int>* Ejercicio01::addTwoNumbers(Node<int>* l1, int sizeL1, Node<int>* l2, int sizeL2)
 {
-    int sum = 0, i = 0;
+    /*int sum = 0, i = 0;
     std::string suma = "";
     std::string digit = "";
     int num1 = 0, num2 = 0;
@@ -40,6 +40,6 @@ Node<int>* Ejercicio01::addTwoNumbers(Node<int>* l1, int sizeL1, Node<int>* l2, 
         headf->next = newNode;
         headf = headf->next;
         i++;
-    }
-    return NewNode;
+    }*/
+    return nullptr;
 }

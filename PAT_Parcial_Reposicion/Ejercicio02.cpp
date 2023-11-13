@@ -2,7 +2,7 @@
 
 Node<char>* Ejercicio02::reverseKGroup(Node<char>* head, int k)
 {
-    Node<char>* tmp = head;
+   /* Node<char>* tmp = head;
     Node<char>* tmp1 = head;
     Node<char>* tmp2 = nullptr;
     int  n = 0;
@@ -35,6 +35,6 @@ Node<char>* Ejercicio02::reverseKGroup(Node<char>* head, int k)
             z++;
         }
         i++;
-    }
-    return head;
+    }*/
+    return nullptr;
 }
