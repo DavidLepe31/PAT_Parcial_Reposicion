@@ -48,23 +48,21 @@ Node<int>* Ejercicio01::addTwoNumbers(Node<int>* l1, int sizeL1, Node<int>* l2, 
 
     }
     
-       /* while (l1 != nullptr) {
+        while (l1 != nullptr) {
             Node<int>* newNode = new Node<int>();
             int sum = 0;
             sum = l1->value + carry;
             if (sum >= 10) {
                 newNode->value = (sum % 10);
-                newNode->next = nullptr;
-                tmp->next = newNode;
-                tmp = tmp->next;
+                newNode->next = headf;
+                headf = newNode;
                 l1 = l1->next;
                 carry = 1;
             }
             else {
                 newNode->value = sum;
-                newNode->next = nullptr;
-                tmp->next = newNode;
-                tmp = tmp->next;
+                newNode->next = headf;
+                headf = newNode;
                 l1 = l1->next;
                 carry = 0;
             }
@@ -77,17 +75,15 @@ Node<int>* Ejercicio01::addTwoNumbers(Node<int>* l1, int sizeL1, Node<int>* l2, 
             sum = l2->value + carry;
             if (sum >= 10) {
                 newNode->value = (sum % 10);
-                newNode->next = nullptr;
-                tmp->next = newNode;
-                tmp = tmp->next;
+                newNode->next = headf;
+                headf = newNode;
                 l2 = l2->next;
                 carry = 1;
             }
             else {
                 newNode->value = sum;
-                newNode->next = nullptr;
-                tmp->next = newNode;
-                tmp = tmp->next;
+                newNode->next = headf;
+                headf = newNode;
                 l2 = l2->next;
                 carry = 0;
             }
@@ -99,9 +95,9 @@ Node<int>* Ejercicio01::addTwoNumbers(Node<int>* l1, int sizeL1, Node<int>* l2, 
     if (carry == 1) {
         Node<int>* newNode = new Node<int>();
         newNode->value = carry;
-        newNode->next = nullptr;
-        tmp->next = newNode;
+        newNode->next = headf;
+        headf = newNode;
         tmp = tmp->next;
-    }*/
+    }
     return headf;
 }
