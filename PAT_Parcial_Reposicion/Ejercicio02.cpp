@@ -2,40 +2,35 @@
 
 Node<char>* Ejercicio02::reverseKGroup(Node<char>* head, int k)
 {
+    Node<char>* headf = head;
+    Node<char>* next = nullptr;
+    Node<char>* prev = nullptr;
+    int s = 0;
+
     Node<char>* tmp = head;
-    Node<char>* tmp1 = head;
-    Node<char>* tmp2 = nullptr;
-    int  n = 0;
-    int  i = 0;
-    int  z = 0;
-    int  j = 0;
-    while (tmp)
-    {
+    while (tmp != nullptr && s < k) {
         tmp = tmp->next;
-        n++;
+        s++;
     }
-    j = n / k;
-    while (i < j) 
-    {
-        z = 0;
-        n = k * (i + 1);
-        tmp1 = head;
-        while (z < n && tmp1!=nullptr) 
-        {
-            tmp1 = tmp1->next;
-            z++;
+
+
+    if (s == k) {
+        while (s > 0) {
+            next = headf->next;
+            headf->next = prev;
+            prev = headf;
+            headf = next;
+            s--;
         }
-        z = 0;
-        while (z < n && tmp2 != nullptr && tmp1 != nullptr)
-        {
-            tmp2 = tmp->next;
-            tmp->next = tmp1;
-            tmp1 = tmp;
-            tmp = tmp2;
-            z++;
+
+
+        if (next != nullptr) {
+            head->next = reverseKGroup(next, k);
         }
-        head = tmp;
-        i++;
+
+        return prev;
     }
-    return head;
+    else {
+        return head;
+    }
 }
