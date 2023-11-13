@@ -34,7 +34,8 @@ Node<char>* Ejercicio02::reverseKGroup(Node<char>* head, int k)
             tmp = tmp2;
             z++;
         }
+        head = tmp;
         i++;
     }
-    return tmp;
+    return head;
 }
