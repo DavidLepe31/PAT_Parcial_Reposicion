@@ -3,43 +3,110 @@
 #include<string>
 Node<int>* Ejercicio01::addTwoNumbers(Node<int>* l1, int sizeL1, Node<int>* l2, int sizeL2)
 {
-    /*int sum = 0, i = 0;
-    std::string suma = "";
-    std::string digit = "";
-    int num1 = 0, num2 = 0;
-    Node<int>* tmp = l1;
-    Node<int>* tmp2 = l2;
-    Node<int>* NewNode = new Node<int>();
-    Node<int>*headf = NewNode;
-    i = 1;
-    while (i <= sizeL1)
-    {
-
-        num1 += tmp->value * pow(10, sizeL1 - i);
-        tmp = tmp->next;
-        i++;
+   
+    Node<int>* tmp = nullptr;
+    Node<int>* htmp = l1;
+    Node<int>* h2tmp = l2;
+    Node<int>* tmp2 = nullptr;
+    int carry = 0;
+    Node<int>* headf = new Node<int>();
+    int sum = 0;
+    sum = l1->value + l2->value + carry;
+    if (sum >= 10) {
+        headf->value = (sum % 10);
+        headf->next = nullptr;
+        l1 = l1->next;
+        l2 = l2->next;
+        carry = 1;
     }
-    i = 1;
-    while (i <= sizeL2)
-    {
-
-        num2 += tmp2->value * pow(10, sizeL2 - i);
-        tmp2 = tmp2->next;
-        i++;
+    else {
+        headf->value = sum;
+        headf->next = nullptr;
+        l1 = l1->next;
+        l2 = l2->next;
+        carry = 0;
     }
-    sum = num1 + num2;
-    suma = std::to_string(sum);
-    digit = suma[0];
-    NewNode->value = stoi(digit);
-    i = 1;
-    while (i < suma.size())
-    {
+    tmp = headf;
+    while (l1 != nullptr && l2 != nullptr) {
         Node<int>* newNode = new Node<int>();
-        digit = suma[i];
-        newNode->value = stoi(digit);
-        headf->next = newNode;
-        headf = headf->next;
-        i++;
-    }*/
-    return nullptr;
+        int sum = 0;
+        sum = l1->value + l2->value + carry;
+        if (sum >= 10) {
+            newNode->value = (sum % 10);
+            newNode->next = nullptr;
+            tmp->next = newNode;
+            tmp = tmp->next;
+            l1 = l1->next;
+            l2 = l2->next;
+            carry = 1;
+        }
+        else {
+            newNode->value = sum;
+            newNode->next = nullptr;
+            tmp->next = newNode;
+            tmp = tmp->next;
+            l1 = l1->next;
+            l2 = l2->next;
+            carry = 0;
+        }
+
+    }
+    if (l1 != nullptr) {
+        while (l1 != nullptr) {
+            Node<int>* newNode = new Node<int>();
+            int sum = 0;
+            sum = l1->value + carry;
+            if (sum >= 10) {
+                newNode->value = (sum % 10);
+                newNode->next = nullptr;
+                tmp->next = newNode;
+                tmp = tmp->next;
+                l1 = l1->next;
+                carry = 1;
+            }
+            else {
+                newNode->value = sum;
+                newNode->next = nullptr;
+                tmp->next = newNode;
+                tmp = tmp->next;
+                l1 = l1->next;
+                carry = 0;
+            }
+
+        }
+    }
+    else {
+        while (l2 != nullptr) {
+            Node<int>* newNode = new Node<int>();
+            int sum = 0;
+            sum = l2->value + carry;
+            if (sum >= 10) {
+                newNode->value = (sum % 10);
+                newNode->next = nullptr;
+                tmp->next = newNode;
+                tmp = tmp->next;
+                l2 = l2->next;
+                carry = 1;
+            }
+            else {
+                newNode->value = sum;
+                newNode->next = nullptr;
+                tmp->next = newNode;
+                tmp = tmp->next;
+                l2 = l2->next;
+                carry = 0;
+            }
+
+        }
+
+    }
+
+    if (carry == 1) {
+        Node<int>* newNode = new Node<int>();
+        newNode->value = carry;
+        newNode->next = nullptr;
+        tmp->next = newNode;
+        tmp = tmp->next;
+    }
+    return headf;
 }
