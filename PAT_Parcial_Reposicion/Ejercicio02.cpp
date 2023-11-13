@@ -20,13 +20,13 @@ Node<char>* Ejercicio02::reverseKGroup(Node<char>* head, int k)
         z = 0;
         n = k * (i + 1);
         tmp1 = head;
-        while (z < n)
+        while (z < n && tmp1) 
         {
             tmp1 = tmp1->next;
             z++;
         }
         z = 0;
-        while (z < n)
+        while (z < n && tmp2 && tmp1)
         {
             tmp2 = tmp->next;
             tmp->next = tmp1;
